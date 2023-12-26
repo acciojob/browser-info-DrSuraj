@@ -1,16 +1,45 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Information</title>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+    <div id="browser-info"></div>
 
+    <script>
+        // Function to get browser information
+        function getBrowserInfo() {
+            // Get user agent string
+            var userAgent = navigator.userAgent;
+
+            // Get browser name
+            var browserName;
+            if (userAgent.indexOf("Firefox") !== -1) {
+                browserName = "Mozilla Firefox";
+            } else if (userAgent.indexOf("Chrome") !== -1) {
+                browserName = "Google Chrome";
+            } else if (userAgent.indexOf("Safari") !== -1) {
+                browserName = "Apple Safari";
+            } else if (userAgent.indexOf("Edge") !== -1) {
+                browserName = "Microsoft Edge";
+            } else if (userAgent.indexOf("MSIE") !== -1 || userAgent.indexOf("Trident") !== -1) {
+                browserName = "Internet Explorer";
+            } else {
+                browserName = "Unknown Browser";
+            }
+
+            // Get browser version
+            var version = navigator.appVersion;
+
+            // Display browser information in the specified format
+            var browserInfoElement = document.getElementById("browser-info");
+            browserInfoElement.textContent = "You are using " + browserName + " version " + version;
+        }
+
+        // Call the function to display browser information
+        getBrowserInfo();
+    </script>
 </body>
-
 </html>
